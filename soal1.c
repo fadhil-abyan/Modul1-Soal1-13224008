@@ -77,7 +77,7 @@ int main(){
     scanf("%255s %255s", namaFile, zonaTarget);
 
     toLowString(zonaTarget);
-    
+
     FILE *file =  fopen(namaFile, "r");
     if (file == NULL) { 
         free(dataSensor);
@@ -96,11 +96,12 @@ int main(){
                 dataSensor = realloc(dataSensor, capacity * sizeof(DataSensor));
             }
         }
-        if (count == 0){
+    }
+
+    if (count == 0){
             printf("999\n");
             return 0;
         }
-    }
 
     fclose(file);
     
