@@ -35,6 +35,13 @@ void sort(int n, DataSensor* a){
                 a[j] = a[j+1];
                 a[j+1] = temp;
             }
+            else if(a[j].suhu == a[j+1].suhu){
+                if(strcmp(a[j].idSensor, a[j+1].idSensor) > 0){
+                    DataSensor temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                }
+            }
         }
     }
 }
@@ -75,6 +82,10 @@ int main(){
                 capacity = 2* capacity;
                 dataSensor = realloc(dataSensor, capacity * sizeof(DataSensor));
             }
+        }
+        if (count == 0){
+            printf("999\n");
+            return 0;
         }
     }
 
