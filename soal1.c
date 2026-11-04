@@ -52,6 +52,16 @@ void printData(int n, DataSensor* a){
     }
 }
 
+void toLowString(char* str){
+    int i = 0;
+    while(str[i] != '\0' ){
+        if(str[i] >= 'A' && str[i] <= 'Z'){
+            str[i] = str[i] + ('a' - 'A');
+        }
+        i++;
+    }
+}
+
 int main(){
     char namaFile[256];
     char zonaTarget[256];
@@ -72,7 +82,7 @@ int main(){
         return -1; 
     }
     while(fscanf(file, " %255[^,],%255[^,],%f", temp_idSensor, temp_zona, &temp_suhu) == 3){
-        if(strcmp(temp_zona, zonaTarget)==0){
+        if(strcmp(toLowString(temp_zona), toLowString(zonaTarget))==0){
             strcpy(dataSensor[count].idSensor, temp_idSensor);
             strcpy(dataSensor[count].zona, temp_zona);
             dataSensor[count].suhu = temp_suhu;
