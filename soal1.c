@@ -1,3 +1,11 @@
+/** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2026/2027
+ *   Modul               : Data manipulation, external files, structers, and dynamic arrays
+ *   Hari dan Tanggal    : Rabu, 4 November 2026
+ *   Nama (NIM)          : Muhammad Fadhil Abyan (13224008)
+ *   Nama File           : soal1.c
+ *   Deskripsi           : Kode program soal 1
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,17 +57,7 @@ int main(){
     char temp_zona[256];
     float temp_suhu;
     
-    if (fgets(namaFile, sizeof(namaFile), stdin) == NULL) {
-        namaFile[0] = '\0';
-    } else {
-        namaFile[strcspn(namaFile, "\r\n")] = '\0';
-    }
-
-    if (fgets(zonaTarget, sizeof(zonaTarget), stdin) == NULL) {
-        zonaTarget[0] = '\0';
-    } else {
-        zonaTarget[strcspn(zonaTarget, "\r\n")] = '\0';
-    }
+    scanf("%255s %255s", namaFile, zonaTarget);
 
     FILE *file =  fopen(namaFile, "r");
     if (file == NULL) { 
